@@ -190,7 +190,7 @@
       "posted_date": "2026-10-28",
       "deadline": null,
       "fit": "medium",
-      "status": "new",
+      "status": "expired",
       "portal": "linkedin-search",
       "source": "websearch",
       "location": "Remote, India"
@@ -372,10 +372,49 @@
       "posted_date": null,
       "deadline": null,
       "fit": "medium",
-      "status": "new",
+      "status": "expired",
       "portal": "weekday",
       "source": "websearch",
       "location": "Remote (India)"
+    },
+    "recruitbots-ai_generative-ai-engineer": {
+      "title": "Generative AI Engineer",
+      "company": "RecruitBots AI",
+      "url": "https://in.linkedin.com/jobs/view/generative-ai-engineer-at-recruitbots-ai-4484541585",
+      "first_seen": "2026-11-03",
+      "posted_date": null,
+      "deadline": null,
+      "fit": "high",
+      "status": "new",
+      "portal": "linkedin-search",
+      "source": "websearch",
+      "location": "Remote, India"
+    },
+    "impacttx-technologies_ai-ml-engineer": {
+      "title": "AI / ML Engineer",
+      "company": "ImpacttX Technologies",
+      "url": "https://www.impacttxtech.com/careers/ai-ml-engineer",
+      "first_seen": "2026-11-03",
+      "posted_date": null,
+      "deadline": null,
+      "fit": "high",
+      "status": "new",
+      "portal": "employer-careers",
+      "source": "websearch",
+      "location": "Remote (India) / Gurugram"
+    },
+    "volga-partners_software-development-engineer-ai-ml": {
+      "title": "Software Development Engineer — AI/ML",
+      "company": "Volga Partners",
+      "url": "https://apply.workable.com/volga-partners/j/0D45AE38FB",
+      "first_seen": "2026-11-03",
+      "posted_date": null,
+      "deadline": null,
+      "fit": "high",
+      "status": "new",
+      "portal": "workable",
+      "source": "websearch",
+      "location": "Fully remote India; occasional office visits"
     }
   }
 }
