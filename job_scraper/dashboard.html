@@ -48,6 +48,39 @@
     .topline-right { display: flex; align-items: center; gap: 13px; }
     .refresh { border: 1px solid var(--line); background: transparent; color: var(--pine); border-radius: 5px; padding: 7px 11px; cursor: pointer; font-size: 11px; }
     .refresh:hover { background: var(--mist); }
+    .workspace-nav { display: flex; gap: 7px; padding: 13px 0 0; border-bottom: 1px solid var(--line); overflow-x: auto; }
+    .nav-tab { border: 0; border-bottom: 3px solid transparent; background: transparent; color: var(--muted); padding: 10px 13px; cursor: pointer; font-size: 12px; white-space: nowrap; }
+    .nav-tab[aria-current="page"] { border-color: var(--citron); color: var(--pine); font-weight: 750; }
+    .workspace-view[hidden] { display: none; }
+    .view-title { margin: 28px 0 7px; color: var(--pine-deep); font: 500 31px/1.15 var(--serif); }
+    .view-intro { margin: 0 0 19px; color: var(--muted); font-size: 12px; line-height: 1.6; max-width: 760px; }
+    .panel { background: white; border: 1px solid var(--line); border-radius: 7px; padding: 18px; margin: 12px 0; }
+    .panel h3 { margin: 0 0 12px; color: var(--pine); font-size: 14px; }
+    .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; }
+    .field { display: grid; gap: 5px; color: var(--muted); font-size: 11px; }
+    .field.wide { grid-column: 1 / -1; }
+    .field input, .field textarea, .field select { border: 1px solid var(--line); border-radius: 5px; padding: 9px 10px; color: var(--ink); font: 12px var(--sans); width: 100%; background: white; }
+    .field textarea { min-height: 90px; resize: vertical; }
+    .action-button { border: 0; border-radius: 5px; padding: 9px 13px; background: var(--pine); color: white; font-size: 11px; font-weight: 700; cursor: pointer; }
+    .action-button.secondary { color: var(--pine); background: var(--mist); border: 1px solid var(--line); }
+    .action-button:disabled { opacity: .55; cursor: wait; }
+    .form-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 13px; }
+    .status-line { color: var(--muted); font-size: 11px; }
+    .pipeline-card { border: 1px solid var(--line); border-radius: 7px; background: white; margin: 10px 0; padding: 16px; }
+    .pipeline-head { display: flex; justify-content: space-between; gap: 12px; align-items: start; }
+    .pipeline-head h3 { margin: 0; font-size: 14px; }
+    .pipeline-head h3 a { color: var(--pine); }
+    .pipeline-meta { color: var(--muted); font-size: 11px; margin-top: 5px; }
+    .stat-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 9px; margin: 16px 0; }
+    .stat-card { padding: 12px; background: var(--mist); border-radius: 5px; color: var(--muted); font-size: 10px; }
+    .stat-card strong { display: block; color: var(--pine); font: 500 26px var(--serif); margin-bottom: 3px; }
+    .feature-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 11px; }
+    .feature-item { border: 1px solid var(--line); border-radius: 6px; padding: 13px; background: #fff; }
+    .feature-item strong { color: var(--pine); font-size: 12px; }
+    .feature-item p { color: var(--muted); font-size: 11px; line-height: 1.5; margin: 6px 0 0; }
+    .source-links { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+    .source-link-card { display: inline-flex; align-items: center; border: 1px solid var(--line); border-radius: 5px; padding: 8px 10px; color: var(--pine); font-size: 11px; font-weight: 700; text-decoration: none; background: var(--white); }
+    .source-link-card:hover { background: var(--mist); }
     .hero { display: flex; justify-content: space-between; align-items: end; gap: 22px; padding: 36px 0 25px; }
     .hero h1 { font-family: var(--serif); font-size: clamp(32px, 4vw, 49px); line-height: 1.04; letter-spacing: -.045em; font-weight: 500; margin: 0; color: var(--pine-deep); }
     .hero p { margin: 11px 0 0; color: var(--muted); font-size: 13px; max-width: 550px; line-height: 1.55; }
@@ -57,7 +90,14 @@
     .summary-number { color: var(--pine); font-family: var(--serif); font-size: 32px; line-height: 1; min-width: 40px; }
     .summary-copy { font-size: 12px; line-height: 1.5; color: #50635d; }
     .summary-copy strong { color: var(--pine-deep); font-weight: 680; }
-    .filters { display: grid; grid-template-columns: minmax(190px, 1fr) 155px 150px auto; gap: 9px; align-items: center; padding: 12px 0 14px; border-top: 1px solid var(--line); }
+    .shortlist { margin: 0 0 24px; padding: 18px; border: 1px solid #c7d6cf; border-radius: 7px; background: #f0f5f1; }
+    .shortlist-head { display: flex; justify-content: space-between; align-items: start; gap: 14px; margin-bottom: 13px; }
+    .shortlist-head h2 { margin: 0; color: var(--pine-deep); font-family: var(--serif); font-size: 23px; font-weight: 500; letter-spacing: -.025em; }
+    .shortlist-head p { margin: 5px 0 0; color: var(--muted); font-size: 11px; line-height: 1.5; }
+    .shortlist-count { flex: 0 0 auto; color: var(--pine); background: #e0eae3; border-radius: 99px; padding: 6px 9px; font-size: 10px; font-weight: 700; }
+    .shortlist .jobs { gap: 7px; }
+    .shortlist .job { padding: 14px 15px; background: rgba(255,255,255,.88); }
+    .filters { display: grid; grid-template-columns: minmax(180px, 1fr) 145px 140px 165px auto; gap: 9px; align-items: center; padding: 12px 0 14px; border-top: 1px solid var(--line); }
     .control { border: 1px solid var(--line); background: var(--white); min-height: 39px; border-radius: 5px; padding: 0 11px; color: var(--ink); font-size: 12px; width: 100%; }
     .control::placeholder { color: #879690; }
     .clear-button { min-height: 39px; border: 0; background: transparent; color: var(--pine); cursor: pointer; padding: 0 9px; font-size: 12px; font-weight: 650; }
@@ -100,6 +140,8 @@
     @media (max-width: 1050px) {
       .shell { grid-template-columns: 215px minmax(0,1fr); }
       main { padding: 0 24px 40px; }
+      .filters { grid-template-columns: minmax(160px,1fr) 135px 130px 150px; }
+      .filters .clear-button { grid-column: 1 / -1; text-align: left; }
       .job { grid-template-columns: minmax(190px,1.3fr) minmax(135px,.7fr) minmax(165px,.9fr); }
       .job-source { grid-column: 1 / -1; flex-direction: row; align-items: center; border-top: 1px solid #edf1ef; padding-top: 9px; }
     }
@@ -123,6 +165,9 @@
       .filters { grid-template-columns: 1fr 1fr; }
       .filters .search { grid-column: 1 / -1; }
       .clear-button { text-align: left; }
+      .form-grid, .feature-list { grid-template-columns: 1fr; }
+      .field.wide { grid-column: auto; }
+      .stat-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
       .job { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; padding: 15px; }
       .job-primary { grid-column: 1 / -1; }
       .job-source { grid-column: 1 / -1; }
@@ -137,7 +182,7 @@
     <aside class="rail" aria-label="Daily report history">
       <div class="brand">
         <div class="brand-mark" aria-hidden="true">J</div>
-        <div><div class="brand-name">Daily Job Desk</div><span class="brand-sub">Remote AI roles · India</span></div>
+        <div><div class="brand-name">Daily Job Desk</div><span class="brand-sub">Candidate-specific jobs · India</span></div>
       </div>
       <div class="rail-label">Daily reports</div>
       <nav id="runList" class="run-list" aria-label="Choose a report"><div class="loading">Loading reports…</div></nav>
@@ -146,34 +191,91 @@
     <main>
       <div class="topline">
         <div class="topline-left"><span class="crumb-dot" aria-hidden="true"></span><span>Job search</span><span>/</span><span id="crumbDate">Daily view</span></div>
-        <div class="topline-right"><span>India · remote-first</span><button id="refreshButton" class="refresh" type="button">Refresh reports</button></div>
+        <div class="topline-right"><span id="marketLabel">India · remote-first</span><button id="refreshSearchButton" class="refresh" type="button">Refresh LinkedIn + Freehire</button><button id="refreshButton" class="refresh" type="button">Refresh reports</button></div>
       </div>
+      <nav class="workspace-nav" aria-label="Job search workspace">
+        <button class="nav-tab" type="button" data-view="jobsView" aria-current="page">Jobs</button>
+        <button class="nav-tab" type="button" data-view="pipelineView">Applications</button>
+        <button class="nav-tab" type="button" data-view="prepView">Interview &amp; skills</button>
+        <button class="nav-tab" type="button" data-view="profileView">Candidate profiles</button>
+      </nav>
+      <section id="jobsView" class="workspace-view">
       <section class="hero">
-        <div><h1>Jobs worth<br>your time.</h1><p>Every screened role from each daily search, in one place. Pick a run, compare the details, and open the original posting when one looks right.</p></div>
+        <div><h1>Jobs worth<br>your time.</h1><p>Candidate-specific job searches in one place. Pick a report, compare the details, and open the original posting when one looks right.</p></div>
         <div class="edition">Selected report<strong id="editionDate">Loading…</strong></div>
       </section>
       <div id="summary" class="summary-strip" aria-live="polite"><div class="summary-number">—</div><div class="summary-copy">Loading daily listings…</div></div>
+      <section class="panel" aria-label="Search all sources">
+        <h3>Search more job sources</h3>
+        <p class="view-intro">Search across LinkedIn, Indeed, Naukri, Foundit, Wellfound, Glassdoor, Shine, Instahyre, Cutshort, Hirist, employer career pages, and the wider web. Board search links open live results; paste promising direct postings into Applications to track them.</p>
+        <div class="form-grid"><label class="field wide">Search terms<input id="sourceSearchQuery" type="text" placeholder="Software Engineer, Full Stack Engineer…"></label></div>
+        <div id="sourceSearchLinks" class="source-links"></div>
+      </section>
+      <section class="shortlist" aria-labelledby="shortlistTitle">
+        <div class="shortlist-head"><div><h2 id="shortlistTitle">Matches your experience</h2><p id="shortlistDescription">Priority roles for 1+ year of combined internship and full-time experience, including 8 months full-time.</p></div><span class="shortlist-count" id="shortlistCount">Loading…</span></div>
+        <div id="shortlistJobs" class="jobs" aria-live="polite"><div class="loading">Finding your best matches…</div></div>
+      </section>
       <section aria-label="Filter jobs">
         <div class="filters">
           <input class="control search" id="searchInput" type="search" placeholder="Search roles, employers, skills…" aria-label="Search roles, employers, and skills">
           <select class="control" id="fitFilter" aria-label="Filter by candidate fit"><option value="all">All fit levels</option><option value="high">High fit</option><option value="medium">Medium fit</option><option value="low">Low fit</option></select>
           <select class="control" id="salaryFilter" aria-label="Filter by minimum salary"><option value="0">Any salary</option><option value="6">₹6 LPA or more</option><option value="10">₹10 LPA or more</option><option value="15">₹15 LPA or more</option><option value="20">₹20 LPA or more</option></select>
+          <select class="control" id="sortFilter" aria-label="Sort jobs"><option value="newest">Report order</option><option value="relevance">Role and location match</option></select>
           <button class="clear-button" id="clearButton" type="button">Clear filters</button>
         </div>
       </section>
       <div class="list-head"><h2>Matching jobs</h2><div id="resultCount" class="result-count"></div></div>
       <section id="jobs" class="jobs" aria-live="polite"><div class="loading">Loading jobs…</div></section>
       <details id="reportNotes" class="notes" hidden><summary>Search notes and salary details</summary><div id="notesBody" class="note-body"></div></details>
+      </section>
+      <section id="pipelineView" class="workspace-view" hidden>
+        <h2 class="view-title">Application pipeline</h2>
+        <p class="view-intro">Track saved roles from first review through application, interview, offer, and final outcome. Changes are saved locally in this workspace and synced to the repository tracker.</p>
+        <div class="panel"><h3>Add a posting from any job board</h3><p class="view-intro">Paste the direct posting URL from LinkedIn, Naukri, Indeed, Freehire, Foundit, Wellfound, Glassdoor, Shine, Instahyre, Cutshort, Hirist, an employer site, or any other source.</p><div class="form-grid"><label class="field">Candidate<select id="manualCandidate"><option>Lakshmi</option><option>Surya</option></select></label><label class="field">Source<select id="manualSource"><option>LinkedIn</option><option>Naukri</option><option>Indeed</option><option>Freehire</option><option>Foundit</option><option>Wellfound</option><option>Glassdoor</option><option>Shine</option><option>Instahyre</option><option>Cutshort</option><option>Hirist</option><option>Employer career site</option><option>Web search</option><option>Other</option></select></label><label class="field">Role title<input id="manualTitle" type="text" required></label><label class="field">Company<input id="manualCompany" type="text" required></label><label class="field wide">Posting URL<input id="manualUrl" type="url" placeholder="https://…" required></label><label class="field">Location<input id="manualLocation" type="text"></label></div><div class="form-actions"><button id="addManualJob" class="action-button" type="button">Add to pipeline</button><span id="manualMessage" class="status-line" aria-live="polite"></span></div></div>
+        <div id="pipelineStats" class="stat-grid"></div>
+        <div id="pipelineList"><div class="loading">Loading applications…</div></div>
+      </section>
+      <section id="prepView" class="workspace-view" hidden>
+        <h2 class="view-title">Interview &amp; skill planning</h2>
+        <p class="view-intro">Save interview examples and skill gaps against a tracked application. The website stores your notes; use the repository’s AI workflows when you want tailored prep or a learning plan.</p>
+        <div class="panel"><h3>Choose an application</h3><label class="field">Tracked role<select id="prepApplication" class="control"><option value="">Choose a tracked role</option></select></label><div class="form-grid" style="margin-top:12px"><label class="field wide">Interview prep and STAR examples<textarea id="interviewPrep" placeholder="Add real examples, interview stages, questions, and notes."></textarea></label><label class="field wide">Skill gaps and learning plan<textarea id="skillGaps" placeholder="Add skills to strengthen, resources, and target dates."></textarea></label></div><div class="form-actions"><button id="savePrepButton" class="action-button" type="button">Save prep notes</button><button id="copyWorkflowButton" class="action-button secondary" type="button">Copy AI workflow prompt</button><span id="prepMessage" class="status-line" aria-live="polite"></span></div></div>
+        <div class="feature-list"><article class="feature-item"><strong>Interview workflow</strong><p>The repository workflow can build stage-specific preparation from the posting, submitted materials, and your real examples.</p></article><article class="feature-item"><strong>Upskill workflow</strong><p>The repository workflow can map job requirements to verified profile skills and prioritize learning resources.</p></article></div>
+      </section>
+      <section id="profileView" class="workspace-view" hidden>
+        <h2 class="view-title">Candidate profiles</h2>
+        <p class="view-intro">Edit the search preferences used in the website. This does not rewrite the canonical resume/profile files; it only configures this local dashboard.</p>
+        <div class="panel"><div class="form-grid"><label class="field">Candidate<select id="profileCandidate" class="control"><option>Lakshmi</option><option>Surya</option></select></label><label class="field">Experience summary<input id="profileExperience" type="text"></label><label class="field wide">Target roles <span>(comma separated)</span><textarea id="profileRoles"></textarea></label><label class="field wide">Locations <span>(comma separated)</span><textarea id="profileLocations"></textarea></label><label class="field">Daily job target<input id="profileTarget" type="number" min="1" max="100"></label></div><div class="form-actions"><button id="saveProfileButton" class="action-button" type="button">Save search preferences</button><span id="profileMessage" class="status-line" aria-live="polite"></span></div></div>
+        <div class="panel"><h3>Repository AI workflows</h3><p class="view-intro">Copy a workflow command and paste it into Codex or Claude Code for the repository’s model-powered process. The website itself handles reports, filtering, preferences, and tracking. Gmail and Notion commands need their respective accounts connected.</p><div class="feature-list">
+          <article class="feature-item"><strong>Profile and search</strong><p><button class="action-button secondary copy-command" data-command="/setup" type="button">Copy /setup</button> <button class="action-button secondary copy-command" data-command="/expand" type="button">Copy /expand</button> <button class="action-button secondary copy-command" data-command="/scrape" type="button">Copy /scrape</button></p></article>
+          <article class="feature-item"><strong>Rank and apply</strong><p><button class="action-button secondary copy-command" data-command="/rank" type="button">Copy /rank</button> <button class="action-button secondary copy-command" data-command="/apply &lt;posting-url&gt;" type="button">Copy /apply</button></p></article>
+          <article class="feature-item"><strong>Interview and outcomes</strong><p><button class="action-button secondary copy-command" data-command="/interview" type="button">Copy /interview</button> <button class="action-button secondary copy-command" data-command="/outcome" type="button">Copy /outcome</button> <button class="action-button secondary copy-command" data-command="/upskill" type="button">Copy /upskill</button></p></article>
+          <article class="feature-item"><strong>Reports and integrations</strong><p><button class="action-button secondary copy-command" data-command="/html-report" type="button">Copy /html-report</button> <button class="action-button secondary copy-command" data-command="/gmail-sync" type="button">Copy /gmail-sync</button> <button class="action-button secondary copy-command" data-command="/notion-sync" type="button">Copy /notion-sync</button></p></article>
+          <article class="feature-item"><strong>Extend job search and documents</strong><p><button class="action-button secondary copy-command" data-command="/add-portal" type="button">Copy /add-portal</button> <button class="action-button secondary copy-command" data-command="/add-template" type="button">Copy /add-template</button></p></article>
+        </div><p id="commandMessage" class="status-line" aria-live="polite"></p></div>
+      </section>
     </main>
   </div>
   <script>
     const runList = document.getElementById('runList');
     const jobsNode = document.getElementById('jobs');
+    const shortlistNode = document.getElementById('shortlistJobs');
     const searchInput = document.getElementById('searchInput');
     const fitFilter = document.getElementById('fitFilter');
     const salaryFilter = document.getElementById('salaryFilter');
+    const sortFilter = document.getElementById('sortFilter');
     let runs = [];
     let current = null;
+    let applications = [];
+    let profiles = {};
+    const shortlistTargets = [
+      ['weekday partner network', 'founding engineer'],
+      ['peakflo', 'forward deployed engineer'],
+      ['ternuvo ai', 'ai engineer'],
+      ['wheelforge', 'ai engineer'],
+      ['emplay', 'associate ai engineer'],
+      ['kivor inc', 'junior agentic ai engineer'],
+      ['artha labs', 'machine learning engineer'],
+    ];
 
     function esc(value = '') {
       return String(value).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
@@ -199,6 +301,33 @@
       const first = s.match(/(\d+(?:\.\d+)?)/);
       return first ? Number(first[1]) : 0;
     }
+    function renderSourceLinks() {
+      const candidate = current?.candidate || document.getElementById('profileCandidate').value || 'Lakshmi';
+      const profile = profiles[candidate] || {};
+      const roles = profile.roles || [];
+      const locations = profile.locations || [];
+      const query = document.getElementById('sourceSearchQuery').value.trim() || roles.slice(0, 3).join(' OR ');
+      const places = locations.filter(item => item && item.toLowerCase() !== 'remote');
+      const loc = places[0] || 'India';
+      const search = phrase => `https://www.google.com/search?q=${encodeURIComponent(phrase)}`;
+      const where = locations.join(' ') || 'India';
+      const boardSearches = [
+        ['Naukri', 'site:naukri.com/job-listings'], ['Foundit', 'site:foundit.in'],
+        ['Wellfound', 'site:wellfound.com/jobs'], ['Glassdoor', 'site:glassdoor.co.in/Job'],
+        ['Shine', 'site:shine.com/jobs'], ['Instahyre', 'site:instahyre.com'],
+        ['Cutshort', 'site:cutshort.io/jobs'], ['Hirist', 'site:hirist.com/j'],
+      ];
+      const links = places.map(place => ['Indeed · ' + place, `https://in.indeed.com/jobs?q=${encodeURIComponent(query)}&l=${encodeURIComponent(place)}&fromage=7`]);
+      links.push(
+        ['Indeed · India', `https://in.indeed.com/jobs?q=${encodeURIComponent(query)}&l=India&fromage=7`],
+        ...boardSearches.map(([name, domain]) => [name, search(`${domain} ${query} ${where}`)]),
+        ['LinkedIn · 7 days', `https://www.linkedin.com/jobs/search/?keywords=${encodeURIComponent(query)}&location=${encodeURIComponent(loc)}&f_TPR=r604800`],
+        ['Employer career pages', search(`${query} careers ${where}`)],
+        ['Google Jobs / all web', search(`${query} jobs ${where} India`) ],
+        ['Bing · all web', `https://www.bing.com/search?q=${encodeURIComponent(`${query} jobs ${where} India`)}`],
+      );
+      document.getElementById('sourceSearchLinks').innerHTML = links.map(([label,url]) => `<a class="source-link-card" href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(label)} ↗</a>`).join('');
+    }
     function fitClass(fit = '') {
       const value = fit.toLowerCase();
       if (value.includes('high')) return 'high';
@@ -207,27 +336,36 @@
       return 'empty';
     }
     function renderRuns() {
-      runList.innerHTML = runs.map((run, i) => `<button class="run-button" type="button" data-file="${esc(run.file)}" ${current?.file === run.file ? 'aria-current="date"' : ''}><span>${esc(run.date)}</span><span class="run-count">${run.count}</span></button>`).join('');
+      runList.innerHTML = runs.map((run, i) => `<button class="run-button" type="button" data-file="${esc(run.file)}" ${current?.file === run.file ? 'aria-current="date"' : ''}><span>${esc(run.candidate || 'Lakshmi')} · ${esc(run.date)}</span><span class="run-count">${run.linkedin_count ? `${run.linkedin_count} LinkedIn · ` : ''}${run.count}</span></button>`).join('');
       runList.querySelectorAll('button').forEach(button => button.addEventListener('click', () => loadRun(button.dataset.file)));
     }
     function filteredEntries() {
       const query = searchInput.value.trim().toLowerCase();
       const fit = fitFilter.value;
       const salary = Number(salaryFilter.value);
-      return (current?.entries || []).filter(job => {
+      const entries = (current?.entries || []).filter(job => {
         const haystack = [job.title, job.employer, job.salary, job.experience, job.location, job.posted, job.fit, job.fitNote, job.source].map(plain).join(' ').toLowerCase();
         const fitOk = fit === 'all' || fitClass(job.fit) === fit;
         return (!query || haystack.includes(query)) && fitOk && salaryFloor(job.salary) >= salary;
       });
-    }
-    function renderJobs() {
-      const entries = filteredEntries();
-      document.getElementById('resultCount').textContent = `${entries.length} of ${current?.count || 0} roles`;
-      if (!entries.length) {
-        jobsNode.innerHTML = '<div class="no-results"><strong>No roles match those filters.</strong>Clear a filter or try a broader search.</div>';
-        return;
+      if (sortFilter.value === 'relevance') {
+        const profile = profiles[current?.candidate || 'Lakshmi'] || {};
+        const roles = (profile.roles || []).map(role => role.toLowerCase());
+        const locations = (profile.locations || []).map(location => location.toLowerCase());
+        const score = job => {
+          const title = plain(job.title).toLowerCase();
+          const location = plain(job.location).toLowerCase();
+          let value = roles.reduce((sum, role) => sum + (role && title.includes(role) ? 3 : 0), 0);
+          if (locations.some(item => item && (location.includes(item) || (item === 'remote' && /remote|india/.test(location))))) value += 2;
+          if (/(senior|sr\.?|staff|principal|lead|manager|director|iii|iv)/i.test(title)) value -= 2;
+          return value;
+        };
+        entries.sort((a,b) => score(b) - score(a));
       }
-      jobsNode.innerHTML = entries.map(job => {
+      return entries;
+    }
+    function renderJobCards(entries) {
+      return entries.map(job => {
         const fit = plain(job.fit);
         const note = plain(job.fitNote || 'Candidate-fit note is in the report.');
         const title = job.url ? `<a href="${esc(job.url)}" target="_blank" rel="noopener noreferrer">${rich(job.title)}</a>` : rich(job.title);
@@ -237,13 +375,50 @@
         else if (/^no|new/.test(seen)) seenTag = '<span class="new-tag">New listing</span>';
         const fitTag = fit ? `<span class="fit-tag ${fitClass(fit)}">${esc(fit)}</span>` : '';
         const sourceLink = job.url ? `<a class="source-link" href="${esc(job.url)}" target="_blank" rel="noopener noreferrer">Open posting ↗</a>` : '';
+        const tracked = applications.some(app => app.candidate === (current?.candidate || 'Lakshmi') && app.url === job.url);
+        const trackButton = job.url ? `<button class="action-button secondary track-job" type="button" data-url="${esc(job.url)}">${tracked ? 'In pipeline' : 'Track this job'}</button>` : '';
         return `<article class="job">
           <div class="job-primary"><h3 class="job-title">${title}</h3><div class="company">${rich(job.employer)}</div><div class="job-tags">${fitTag}${seenTag}</div><p class="fit-note">${rich(note)}</p></div>
           <div><div class="meta-block"><div class="job-label">Salary</div><div class="job-value salary">${rich(job.salary || 'Not stated')}</div></div><div class="meta-block"><div class="job-label">Experience</div><div class="job-value">${rich(job.experience || 'Not stated')}</div></div></div>
           <div><div class="meta-block"><div class="job-label">Location</div><div class="job-value">${rich(job.location || 'Not stated')}</div></div><div class="meta-block"><div class="job-label">Posted / verified</div><div class="job-value">${rich(job.posted || 'Date not stated')}</div></div></div>
-          <div class="job-source"><div class="job-label">${rich(job.source || 'Source in report')}</div>${sourceLink}</div>
+          <div class="job-source"><div class="job-label">${rich(job.source || 'Source in report')}</div>${sourceLink}${trackButton}</div>
         </article>`;
       }).join('');
+    }
+    function renderShortlist() {
+      const entries = current?.entries || [];
+      const candidate = current?.candidate || 'Lakshmi';
+      let selected;
+      if (candidate.toLowerCase() === 'surya') {
+        document.getElementById('shortlistTitle').textContent = "Surya’s potential matches";
+        document.getElementById('shortlistDescription').textContent = 'Software Engineer, Forward Deployed Engineer, and Full Stack roles in Hyderabad, Visakhapatnam, Bengaluru, and Chennai. Surya has 1.5 years of experience; verify each posting’s requirements.';
+        selected = entries.filter(job => {
+          const title = plain(job.title).toLowerCase();
+          const roleMatch = /software engineer|full.?stack|forward.?deployed|\bfde\b/.test(title);
+          const seniorityStretch = /(?:^|\W)(?:senior|sr\.?|staff|principal|lead|manager|director|iii|iv)(?:\W|$)/.test(title);
+          return roleMatch && !seniorityStretch;
+        });
+        document.getElementById('shortlistCount').textContent = `${selected.length} potential ${selected.length === 1 ? 'role' : 'roles'}`;
+      } else {
+        document.getElementById('shortlistTitle').textContent = 'Matches your experience';
+        document.getElementById('shortlistDescription').textContent = 'Priority roles for 1+ year of combined internship and full-time experience, including 8 months full-time.';
+        selected = shortlistTargets.map(([employer, title]) => entries.find(job =>
+          plain(job.employer).toLowerCase().includes(employer) && plain(job.title).toLowerCase().includes(title)
+        )).filter(Boolean);
+        document.getElementById('shortlistCount').textContent = `${selected.length} priority ${selected.length === 1 ? 'role' : 'roles'}`;
+      }
+      shortlistNode.innerHTML = selected.length
+        ? renderJobCards(selected)
+        : '<div class="no-results"><strong>No priority matches in this report.</strong>Choose a newer daily report to see the current shortlist.</div>';
+    }
+    function renderJobs() {
+      const entries = filteredEntries();
+      document.getElementById('resultCount').textContent = `${entries.length} of ${current?.count || 0} roles`;
+      if (!entries.length) {
+        jobsNode.innerHTML = '<div class="no-results"><strong>No roles match those filters.</strong>Clear a filter or try a broader search.</div>';
+        return;
+      }
+      jobsNode.innerHTML = renderJobCards(entries);
     }
     function renderNotes(markdown = '') {
       const panel = document.getElementById('reportNotes');
@@ -264,12 +439,22 @@
         current = await response.json();
         document.getElementById('crumbDate').textContent = current.date;
         document.getElementById('editionDate').textContent = current.date;
+        document.getElementById('marketLabel').textContent = (current.candidate || 'Lakshmi').toLowerCase() === 'surya' ? 'Hyderabad · Visakhapatnam · Bengaluru · Chennai' : 'India · remote-first';
+        document.getElementById('manualCandidate').value = current.candidate || 'Lakshmi';
+        document.getElementById('sourceSearchQuery').value = (profiles[current.candidate || 'Lakshmi']?.roles || []).slice(0, 3).join(' OR ');
+        renderSourceLinks();
         const hasSeenData = current.entries.some(job => plain(job.seen));
         const newCount = current.entries.filter(job => /^(no|new)/i.test(plain(job.seen))).length;
         const seenCount = current.entries.filter(job => /^(yes|previously seen)/i.test(plain(job.seen))).length;
-        const detail = hasSeenData ? `${newCount} newly surfaced · ${seenCount} seen in earlier runs` : 'Saved from this daily search';
+        const linkedinCount = current.entries.filter(job => plain(job.source).toLowerCase() === 'linkedin').length;
+        const detailParts = [];
+        if (linkedinCount) detailParts.push(`${linkedinCount} LinkedIn posts`);
+        if (hasSeenData) detailParts.push(`${newCount} newly surfaced · ${seenCount} seen in earlier runs`);
+        else if (!linkedinCount) detailParts.push('Saved from this daily search');
+        const detail = detailParts.join(' · ');
         document.getElementById('summary').innerHTML = `<div class="summary-number">${current.count}</div><div class="summary-copy"><strong>matching roles</strong> in this daily report<br>${esc(detail)}</div>`;
         renderRuns();
+        renderShortlist();
         renderJobs();
         renderNotes(current.notes);
       } catch (error) {
@@ -289,10 +474,202 @@
         runList.innerHTML = `<div class="error">${esc(error.message || 'Unable to read reports.')}</div>`;
       }
     }
-    [searchInput, fitFilter, salaryFilter].forEach(control => control.addEventListener('input', renderJobs));
-    document.getElementById('clearButton').addEventListener('click', () => { searchInput.value = ''; fitFilter.value = 'all'; salaryFilter.value = '0'; renderJobs(); searchInput.focus(); });
+    function setView(viewId) {
+      document.querySelectorAll('.workspace-view').forEach(view => { view.hidden = view.id !== viewId; });
+      document.querySelectorAll('.nav-tab').forEach(tab => tab.setAttribute('aria-current', tab.dataset.view === viewId ? 'page' : 'false'));
+      if (viewId === 'pipelineView') loadApplications();
+      if (viewId === 'prepView') { loadApplications().then(renderPrepSelector); }
+      if (viewId === 'profileView') loadProfiles();
+    }
+    async function api(path, method = 'GET', body) {
+      const response = await fetch(path, {method, headers: body ? {'Content-Type':'application/json'} : {}, body: body ? JSON.stringify(body) : undefined, cache:'no-store'});
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || 'The request could not be completed.');
+      return data;
+    }
+    function renderPipeline() {
+      const counts = Object.fromEntries(['drafted','applied','interview','offer','hired','rejected','no_response','withdrawn','offer_declined'].map(status => [status, applications.filter(app => app.status === status).length]));
+      document.getElementById('pipelineStats').innerHTML = `<div class="stat-card"><strong>${applications.length}</strong>tracked roles</div><div class="stat-card"><strong>${counts.applied + counts.interview + counts.offer}</strong>active applications</div><div class="stat-card"><strong>${counts.interview}</strong>in interview</div><div class="stat-card"><strong>${counts.hired}</strong>offers accepted</div>`;
+      const list = document.getElementById('pipelineList');
+      if (!applications.length) { list.innerHTML = '<div class="no-results"><strong>Your pipeline is empty.</strong>Use “Track this job” on a posting to start tracking an application.</div>'; return; }
+      const options = ['drafted','applied','interview','offer','hired','rejected','no_response','offer_declined','withdrawn'];
+      list.innerHTML = applications.map(app => {
+        const deadlineDays = app.deadline ? Math.ceil((new Date(`${app.deadline}T23:59:59`) - new Date()) / 86400000) : null;
+        const appliedDays = app.applied_date ? Math.floor((Date.now() - new Date(`${app.applied_date}T00:00:00`) ) / 86400000) : null;
+        const followup = ['applied','interview','offer'].includes(app.status) && appliedDays >= 10 ? `<p class="fit-note"><strong>Follow-up may be due:</strong> ${appliedDays} days since the application date. Draft a note from your submitted materials; the website never sends it.</p>` : '';
+        const deadlineNote = deadlineDays !== null && deadlineDays < 0 ? '<p class="fit-note"><strong>Deadline passed.</strong></p>' : deadlineDays !== null && deadlineDays <= 7 ? '<p class="fit-note"><strong>Deadline soon:</strong> within 7 days.</p>' : '';
+        return `<article class="pipeline-card" data-app-id="${esc(app.id)}">
+        <div class="pipeline-head"><div><h3><a href="${esc(app.url)}" target="_blank" rel="noopener noreferrer">${rich(app.title)}</a></h3><div class="pipeline-meta">${rich(app.company)} · ${rich(app.candidate)} · ${rich(app.location || 'Location not stated')} · ${rich(app.source || 'Source not stated')}</div></div><span class="fit-tag empty">${esc(app.status)}</span></div>
+        ${followup}${deadlineNote}
+        <div class="form-grid" style="margin-top:13px"><label class="field">Status<select data-field="status">${options.map(status => `<option value="${status}" ${app.status === status ? 'selected' : ''}>${status.replaceAll('_',' ')}</option>`).join('')}</select></label><label class="field">Application deadline<input data-field="deadline" type="date" value="${esc(app.deadline || '')}"></label><label class="field">CV file path<input data-field="cv_file" value="${esc(app.cv_file || '')}" placeholder="cv/filename.pdf"></label><label class="field">Cover letter file path<input data-field="cover_letter_file" value="${esc(app.cover_letter_file || '')}" placeholder="cover_letters/filename.pdf"></label><label class="field wide">Notes<textarea data-field="notes" placeholder="Application steps, contacts, follow-up notes…">${esc(app.notes || '')}</textarea></label></div>
+        <div class="form-actions"><button class="action-button save-application" type="button">Save progress</button><button class="action-button secondary prepare-application" type="button">Create application brief</button><span class="status-line" aria-live="polite"></span></div>
+      </article>`;
+      }).join('');
+      renderPrepSelector();
+      renderJobs();
+      renderShortlist();
+    }
+    async function loadApplications() {
+      try { applications = await api('/api/applications'); renderPipeline(); }
+      catch (error) { document.getElementById('pipelineList').innerHTML = `<div class="error">${esc(error.message)}</div>`; }
+    }
+    function renderPrepSelector() {
+      const select = document.getElementById('prepApplication');
+      const previous = select.value;
+      select.innerHTML = '<option value="">Choose a tracked role</option>' + applications.map(app => `<option value="${esc(app.id)}">${esc(app.candidate)} · ${esc(app.company)} — ${esc(app.title)}</option>`).join('');
+      if (applications.some(app => app.id === previous)) select.value = previous;
+      loadPrepNotes();
+    }
+    function loadPrepNotes() {
+      const app = applications.find(item => item.id === document.getElementById('prepApplication').value);
+      document.getElementById('interviewPrep').value = app?.interview_prep || '';
+      document.getElementById('skillGaps').value = app?.skill_gaps || '';
+      document.getElementById('prepMessage').textContent = app ? `${app.company} · ${app.title}` : '';
+    }
+    async function loadProfiles() {
+      try { profiles = await api('/api/profiles'); fillProfileForm(); renderSourceLinks(); }
+      catch (error) { document.getElementById('profileMessage').textContent = error.message; }
+    }
+    function fillProfileForm() {
+      const name = document.getElementById('profileCandidate').value;
+      const profile = profiles[name] || {};
+      document.getElementById('profileExperience').value = profile.experience || '';
+      document.getElementById('profileRoles').value = (profile.roles || []).join(', ');
+      document.getElementById('profileLocations').value = (profile.locations || []).join(', ');
+      document.getElementById('profileTarget').value = profile.target_per_day || 100;
+    }
+    async function trackJob(job, button) {
+      button.disabled = true;
+      try {
+        const result = await api('/api/applications', 'POST', {candidate:current?.candidate || 'Lakshmi', company:job.employer || 'Unknown employer', title:job.title, url:job.url, location:job.location || '', source:job.source || '', posted:job.posted || ''});
+        applications = await api('/api/applications');
+        button.textContent = result.existing ? 'In pipeline' : 'Added to pipeline';
+        renderPipeline();
+      } catch (error) { button.textContent = error.message; }
+      finally { button.disabled = false; }
+    }
+    async function savePipelineCard(button) {
+      const card = button.closest('[data-app-id]');
+      const value = field => card.querySelector(`[data-field="${field}"]`).value;
+      const message = card.querySelector('.status-line');
+      button.disabled = true;
+      try {
+        await api('/api/applications', 'PUT', {id:card.dataset.appId, updates:{status:value('status'),deadline:value('deadline'),notes:value('notes'),cv_file:value('cv_file'),cover_letter_file:value('cover_letter_file')}});
+        message.textContent = 'Saved';
+        await loadApplications();
+      } catch (error) { message.textContent = error.message; }
+      finally { button.disabled = false; }
+    }
+    async function prepareApplication(button) {
+      const card = button.closest('[data-app-id]');
+      const message = card.querySelector('.status-line');
+      button.disabled = true;
+      try {
+        const result = await api('/api/prepare', 'POST', {id:card.dataset.appId});
+        message.textContent = `Brief saved to ${result.file}`;
+      } catch (error) { message.textContent = error.message; }
+      finally { button.disabled = false; }
+    }
+    async function savePrepNotes() {
+      const id = document.getElementById('prepApplication').value;
+      const message = document.getElementById('prepMessage');
+      if (!id) { message.textContent = 'Choose an application first.'; return; }
+      try {
+        await api('/api/applications', 'PUT', {id, updates:{interview_prep:document.getElementById('interviewPrep').value,skill_gaps:document.getElementById('skillGaps').value}});
+        message.textContent = 'Interview and skill notes saved.';
+        applications = await api('/api/applications');
+        renderPrepSelector();
+        document.getElementById('prepApplication').value = id;
+        loadPrepNotes();
+      } catch (error) { message.textContent = error.message; }
+    }
+    async function saveProfile() {
+      const candidate = document.getElementById('profileCandidate').value;
+      const message = document.getElementById('profileMessage');
+      try {
+        const result = await api('/api/profiles', 'PUT', {candidate,experience:document.getElementById('profileExperience').value,roles:document.getElementById('profileRoles').value.split(',').map(s=>s.trim()).filter(Boolean),locations:document.getElementById('profileLocations').value.split(',').map(s=>s.trim()).filter(Boolean),target_per_day:Number(document.getElementById('profileTarget').value)});
+        profiles[candidate] = result.profile;
+        renderSourceLinks();
+        message.textContent = 'Search preferences saved.';
+      } catch (error) { message.textContent = error.message; }
+    }
+    async function startRefresh() {
+      const button = document.getElementById('refreshSearchButton');
+      button.disabled = true;
+      button.textContent = 'Searching…';
+      try {
+        await api('/api/refresh', 'POST', {});
+        let state;
+        do {
+          await new Promise(resolve => setTimeout(resolve, 2500));
+          state = await api('/api/refresh');
+        } while (state.running);
+        if (state.exit_code !== 0) throw new Error('The search process did not finish successfully. Check outputs/daily-job-refresh.log.');
+        await refreshRuns();
+        button.textContent = 'Search complete · refresh';
+      } catch (error) { button.textContent = 'Search failed'; window.alert(error.message); }
+      finally { button.disabled = false; }
+    }
+    async function addManualJob() {
+      const message = document.getElementById('manualMessage');
+      const payload = {
+        candidate:document.getElementById('manualCandidate').value,
+        source:document.getElementById('manualSource').value,
+        title:document.getElementById('manualTitle').value.trim(),
+        company:document.getElementById('manualCompany').value.trim(),
+        url:document.getElementById('manualUrl').value.trim(),
+        location:document.getElementById('manualLocation').value.trim(),
+      };
+      try {
+        const result = await api('/api/applications', 'POST', payload);
+        applications = await api('/api/applications');
+        renderPipeline();
+        message.textContent = result.existing ? 'That posting is already in the pipeline.' : 'Posting added to the pipeline.';
+        if (!result.existing) ['manualTitle','manualCompany','manualUrl','manualLocation'].forEach(id => { document.getElementById(id).value = ''; });
+      } catch (error) { message.textContent = error.message; }
+    }
+    document.querySelectorAll('.nav-tab').forEach(tab => tab.addEventListener('click', () => setView(tab.dataset.view)));
+    document.getElementById('profileCandidate').addEventListener('change', () => { fillProfileForm(); renderSourceLinks(); });
+    document.getElementById('prepApplication').addEventListener('change', loadPrepNotes);
+    document.getElementById('saveProfileButton').addEventListener('click', saveProfile);
+    document.getElementById('savePrepButton').addEventListener('click', savePrepNotes);
+    document.getElementById('refreshSearchButton').addEventListener('click', startRefresh);
+    document.getElementById('addManualJob').addEventListener('click', addManualJob);
+    document.getElementById('sourceSearchQuery').addEventListener('input', renderSourceLinks);
+    document.getElementById('jobs').addEventListener('click', event => {
+      const button = event.target.closest('.track-job');
+      if (!button) return;
+      const job = current?.entries.find(entry => entry.url === button.dataset.url);
+      if (job) trackJob(job, button);
+    });
+    document.getElementById('shortlistJobs').addEventListener('click', event => {
+      const button = event.target.closest('.track-job');
+      if (!button) return;
+      const job = current?.entries.find(entry => entry.url === button.dataset.url);
+      if (job) trackJob(job, button);
+    });
+    document.getElementById('pipelineList').addEventListener('click', event => {
+      if (event.target.closest('.save-application')) savePipelineCard(event.target.closest('.save-application'));
+      if (event.target.closest('.prepare-application')) prepareApplication(event.target.closest('.prepare-application'));
+    });
+    document.getElementById('copyWorkflowButton').addEventListener('click', async () => {
+      const app = applications.find(item => item.id === document.getElementById('prepApplication').value);
+      const message = document.getElementById('prepMessage');
+      if (!app) { message.textContent = 'Choose an application first.'; return; }
+      const prompt = `For ${app.candidate}, use the repository workflow for ${app.company} — ${app.title}. Posting: ${app.url}\n\nFor application materials, run /apply ${app.url}. For interview prep, run /interview ${app.company} ${app.title}. For skill gaps, run /upskill ${app.url}. Use only verified candidate experience; do not invent claims.`;
+      try { await navigator.clipboard.writeText(prompt); message.textContent = 'Copied workflow prompt. Paste it into your AI coding assistant.'; }
+      catch { message.textContent = prompt; }
+    });
+    document.getElementById('profileView').addEventListener('click', async event => {
+      const button = event.target.closest('.copy-command');
+      if (!button) return;
+      try { await navigator.clipboard.writeText(button.dataset.command); document.getElementById('commandMessage').textContent = `Copied ${button.dataset.command}. Paste it into Codex or Claude Code.`; }
+      catch { document.getElementById('commandMessage').textContent = button.dataset.command; }
+    });
+    [searchInput, fitFilter, salaryFilter, sortFilter].forEach(control => control.addEventListener('input', renderJobs));
+    document.getElementById('clearButton').addEventListener('click', () => { searchInput.value = ''; fitFilter.value = 'all'; salaryFilter.value = '0'; sortFilter.value = 'newest'; renderJobs(); searchInput.focus(); });
     document.getElementById('refreshButton').addEventListener('click', refreshRuns);
-    refreshRuns();
+    Promise.all([refreshRuns(), loadApplications(), loadProfiles()]);
   </script>
 </body>
 </html>

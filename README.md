@@ -182,6 +182,12 @@ This runs the full workflow: evaluate fit, draft CV + cover letter, review with 
 | `/add-portal` | Generates a search skill for a job board in your market |
 | `/reset` | Wipes profile data or documents - see [Starting over](#starting-over) |
 
+### Local Job Desk website
+
+This fork also includes a local website at `http://127.0.0.1:8765` (`python tools/serve_daily_jobs_dashboard.py`). It displays candidate-specific daily job reports and adds a lightweight workspace for filtering and sorting jobs, starting a LinkedIn and Freehire refresh, opening live searches across Indeed, Naukri, Foundit, Wellfound, Glassdoor, Shine, Instahyre, Cutshort, Hirist, employer career pages, Google, and Bing, and manually adding any posting to the pipeline. It also tracks application stages and outcomes, deadlines and notes, creates application briefs, and stores interview-prep and skill-gap notes. Workspace data stays in this checkout and the application tracker CSV.
+
+The website hands AI-dependent work such as tailored CV and cover-letter drafting, full fit evaluation, and researched interview preparation to the repository's existing `/apply`, `/rank`, `/interview`, and `/upskill` workflows. Gmail and Notion sync still require their respective connectors; the website does not send applications or messages.
+
 <details>
 <summary><b>Full command reference</b></summary>
 
